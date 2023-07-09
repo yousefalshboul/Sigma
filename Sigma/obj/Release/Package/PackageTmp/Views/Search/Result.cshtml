@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Result";
+}
+
+<h2>Result</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">National ID</th>
+                    <th scope="col">Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if (Model != null)
+                    {
+                        foreach (var d in Model)
+                        {
+                            <tr>
+                                <th scope="row">@d.id</th>
+                                <td>@d.Name</td>
+                                <td>@d.NationalID</td>
+                                <td>@d.Year</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

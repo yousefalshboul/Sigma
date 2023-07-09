@@ -1,0 +1,66 @@
+﻿@model Sigma.Models.Search
+
+@if (TempData["AlertMessageLogin"] != null)
+{
+    <div class="col-md-12 alert alert-success">
+        @TempData["AlertMessageLogin"]
+    </div>
+}
+@if (TempData["AlertMessageSignup"] != null)
+{
+    <div class="col-md-12 alert alert-success">
+        @TempData["AlertMessageSignup"]
+    </div>
+}
+
+@*@using (Html.BeginForm("searchMethod", "Search", "post"))
+    {
+        <div class="row">
+            <div class="form-group">
+                <span class="control-label col-md-6">Select Category: </span>
+                <select class="col-md-6" name="categories" onchange="ChangeType()" id="select" required>
+                    <option selected></option>
+                    <option id="1">Id</option>
+                    <option id="2">Client Name</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label col-md-6" for="searchQuery">Please enter information as per the selected category:</label>
+                <input class="form-control col-md-6" type="text" name="searchQuery" id="searchQuery" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-6 col-md-6">
+                <input style="background-color: #188e04; color: white" type="submit" value="Login" />
+            </div>
+        </div>
+    }*@
+
+<div class="col-md-12" style="text-align: center">
+    <img style="width:25%;height:auto" src="~/Content/Images/Logo.jpg" />
+</div>
+<div class="col-md-12" style="text-align: center">
+    @using (Html.BeginForm("searchMethod", "Search", FormMethod.Post))
+    {
+        <form>
+            <p>
+                <label>Select Category: </label>
+                <select class="form-select-lg mb-3" name="categories" id="select" required>
+                    <option selected id="1">Id</option>
+                    <option id="2">Client Name</option>
+                </select>
+            </p>
+            <p>
+                <label for="searchQuery">Please enter information as per the selected category: </label>
+
+                <input class="form-control" type="text" name="searchQuery" id="searchQuery" />
+            </p>
+            <input style="background-color: #188e04; color: white" type="submit" value="Search" />
+
+        </form>
+    }
+</div>
+
+

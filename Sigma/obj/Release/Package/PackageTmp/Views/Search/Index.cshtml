@@ -1,0 +1,24 @@
+﻿@model Sigma.Models.Search
+
+<div class="col-md-12 offset-md-3" style="text-align: center">
+    <img style="width:25%;height:auto" src="~/Content/Images/نقابة تجار و منتجي المواد الزراعيةjpg.jpg" />
+</div>
+    @using (Html.BeginForm("searchMethod", "Search", "post"))
+    {
+        <div class="row">
+            <div class="col-md-12 offset-md-3" style="text-align: center">
+                <form style=" display: inline-block; ">
+                    <div class="form-group">
+                        <label class="control-label col-md-6" for="searchQuery">Please enter the ID:</label>
+                        <input class="form-control col-md-6" type="text" name="searchQuery" id="searchQuery" />
+                    </div>
+                    <div class="col-md-offset-2 col-md-7">
+                        <button class="btn btn-primary" type="submit">search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+
+
+

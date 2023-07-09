@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Result";
+}
+@if (TempData["AlertMessageEdit"] != null)
+{
+    <div class="alert alert-info text-center">
+        @TempData["AlertMessageEdit"]
+    </div>
+}
+@if (TempData["AlertMessageAdd"] != null)
+{
+    <div class="alert alert-info text-center">
+        @TempData["AlertMessageAdd"]
+    </div>
+}
+@if (TempData["AlertMessageDelete"] != null)
+{
+    <div class="alert alert-info text-center">
+        @TempData["AlertMessageDelete"]
+    </div>
+}
+<h2>Result</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">National ID</th>
+                    <th scope="col">Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if (Model != null)
+                    {
+                        foreach (var d in Model)
+                        {
+                            <tr>
+                                <th scope="row">@d.id</th>
+                                <td>@d.Name</td>
+                                <td>@d.NationalID</td>
+                                <td>@d.Year</td>
+                                @{
+                                    if ((string)Session["UserName"] == "Admin")
+                                    {
+                                        <td>
+                                            @*@using (Html.BeginForm("Delete", "Search", new { id = d.id }))
+                                                {
+                                                    <input class="btn btn-secondary active btn-block" type="submit" value="Delete" />
+                                                }*@
+                                            @using (Html.BeginForm("Edit", "Search", new { id = d.id}))
+                                            {
+                                                <input style="background-color: #188e04; color: white" type="submit" value="Edit" />
+                                            }
+                                        </td>
+                                    }
+                                }
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

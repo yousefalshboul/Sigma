@@ -1,0 +1,38 @@
+﻿@model Sigma.Models.Auth
+@{
+    ViewBag.Title = "Login";
+}
+@if (TempData["AlertMessageFailedLogin"] != null)
+{
+    <div class="col-md-12 alert alert-danger">
+        @TempData["AlertMessageFailedLogin"]
+    </div>
+}
+@if (TempData["AlertMessageLogout"] != null)
+{
+    <div class="col-md-12 alert alert-info">
+        @TempData["AlertMessageLogout"]
+    </div>
+}
+
+<div class="col-md-12" style="text-align: center">
+    <img style="width:25%;height:auto" src="~/Content/Images/Logo.jpg" />
+</div>
+
+<div class="col-md-12" style="text-align: center">
+    @using (Html.BeginForm("Login", "Auth", FormMethod.Post))
+    {
+        <form>
+            <p>
+                @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+            </p>
+            <p>
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+            </p>
+            <input style="background-color: #188e04; color: white" type="submit" value="Login" />
+
+        </form>
+    }
+</div>
